@@ -19,7 +19,7 @@ const ShopHeader = ({shop}) => {
 
   }}>
     <div>
-      <CheckboxItem onChange={e => console.log('checkbox', e)}>
+      <CheckboxItem checked={shop.selected} onChange={e => console.log('checkbox', e)}>
         <a onClick={(e) => {
 
         }}>{shop.shopName}</a>
@@ -29,11 +29,13 @@ const ShopHeader = ({shop}) => {
   </div>
 }
 // 单个商品
-const PriductItem = ({product}) => {
+const PriductItem = ({product,selectProduct,setProductCount}) => {
   return <div
     style={{backgroundColor: '#fff', display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '15px'}}>
     <div style={{width:'40px'}}>
-      <CheckboxItem onChange={e => console.log('checkbox', e)}/>
+      <CheckboxItem checked={product.selected} onChange={()=>{
+        selectProduct(product);
+      }}/>
     </div>
     <div style={{flex:1}}>
       <img style={{width: '120px', height: '120px'}} src={logo} alt=""/>
@@ -47,11 +49,14 @@ const PriductItem = ({product}) => {
       justifyContent: 'space-around',
       marginLeft: '15px',
     }}>
-      <div>IQS pencil 主动式电容笔高精度超细头触控屏幕苹果ipad平板手机安卓手写笔绘画</div>
+      <div>[{product.productName}]主动式电容笔高精度超细头触控屏幕苹果ipad平板手机安卓手写笔绘画</div>
       <div style={{color: '#999999'}}> 顺丰包邮</div>
       <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:'100%'}}>
         <div style={{color: 'pink'}}>¥{product.price}</div>
         <Stepper
+          onChange={count=>{
+            setProductCount(product,count);
+          }}
           showNumber
           min={1}
           defaultValue={product.count}
@@ -61,25 +66,29 @@ const PriductItem = ({product}) => {
   </div>
 }
 // 店铺
-const ShopItem = ({shop}) => {
+const ShopItem = ({shop,selectProduct,setProductCount}) => {
   return <div style={{margin:'8px',borderRadius:'8px'}}>
     <ShopHeader shop={shop}/>
     {
-      shop.items.map((p,index)=><PriductItem key={'#'+index} product={p}/>)
+      shop.list.map((p,index)=><PriductItem
+        key={'#'+index}
+        product={p}
+        setProductCount={setProductCount}
+        selectProduct={selectProduct}/>)
     }
   </div>
 }
 // 购物车footer
-const ShopppingCartFooter = ()=>{
+const ShopppingCartFooter = ({shoppingCart,toggle})=>{
   return <div style={{position:'fixed',bottom:0,height:'50px',backgroundColor:'#fff',left:0,right:0}}>
-    <div style={{display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:'10px',paddingRight:'15px'}}>
+    <div style={{display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'center',paddingLeft:'8px',paddingRight:'15px'}}>
       <div style={{display:'flex',flexDirection:'row',alignItems:'center' }}>
-        <CheckboxItem onChange={e => console.log('checkbox', e)}>全选</CheckboxItem>
+        <CheckboxItem checked={shoppingCart.selected} onChange={toggle}>全选</CheckboxItem>
       </div>
       <div style={{display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
         <div>合计：</div>
-        <div style={{color:'red',paddingRight:'8px'}}>¥178</div>
-        <Button type="primary"  inline>结算(0)</Button>
+        <div style={{color:'red',paddingRight:'8px'}}>¥{shoppingCart.totalPrice}</div>
+        <Button type="primary"  inline>结算({shoppingCart.totalCount})</Button>
       </div>
     </div>
   </div>
@@ -94,11 +103,35 @@ class ShoppingCart extends React.Component {
     })
   }
 
+  // 购物车的选中与否
+  toggleSelect = ()=>{
+    this.props.dispatch({
+      type:'shoppingcart/toggleSelect',
+    })
+  }
+
+  // 选中商品
+  selectProduct = p=>{
+    this.props.dispatch({
+      type:'shoppingcart/selectProduct',
+      payload:p
+    })
+  }
+
+  // 设置商品数量
+  setProductCount = (p,count)=>{
+    this.props.dispatch({
+      type:'shoppingcart/setProductCount',
+      payload:{
+        product:p,
+        count:count
+      }
+    })
+  }
+
 
   render() {
     const shoppingCart = this.props.store.shoppingCart ;
-
-    console.log(shoppingCart);
     return (
       <div style={{paddingBottom:'50px',paddingTop:'50px'}}>
         <div style={{position:'fixed',top:0,left:0,right:0,zIndex:999}}>
@@ -110,8 +143,12 @@ class ShoppingCart extends React.Component {
             ]}
           >购物车</NavBar>
         </div>
-        {shoppingCart.list.map((shop,index)=><ShopItem shop={shop} key={'#'+index}/>)}
-        <ShopppingCartFooter/>
+        {shoppingCart.list.map((shop,index)=><ShopItem
+          setProductCount={this.setProductCount}
+          selectProduct={this.selectProduct}
+          shop={shop}
+          key={'#'+index}/>)}
+        <ShopppingCartFooter shoppingCart={shoppingCart} toggle={this.toggleSelect}/>
       </div>
     );
   }
