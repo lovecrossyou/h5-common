@@ -96,8 +96,9 @@ class ShoppingCart extends React.Component {
 
 
   render() {
-    const shops = this.props.store.shops ;
-    console.log(shops)
+    const shoppingCart = this.props.store.shoppingCart ;
+
+    console.log(shoppingCart);
     return (
       <div style={{paddingBottom:'50px',paddingTop:'50px'}}>
         <div style={{position:'fixed',top:0,left:0,right:0,zIndex:999}}>
@@ -109,7 +110,7 @@ class ShoppingCart extends React.Component {
             ]}
           >购物车</NavBar>
         </div>
-        {shops.map((shop,index)=><ShopItem shop={shop} key={'#'+index}/>)}
+        {shoppingCart.list.map((shop,index)=><ShopItem shop={shop} key={'#'+index}/>)}
         <ShopppingCartFooter/>
       </div>
     );

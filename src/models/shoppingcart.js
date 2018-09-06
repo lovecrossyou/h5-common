@@ -30,6 +30,31 @@ class ShopItem {
 }
 
 
+class ShoppingCart{
+  constructor(list = []) {
+    this.selected = false ;
+    this.editing = false ;
+    this.list = list ;
+
+    //计算选中的 商品总价 和总数量
+    this.totalPrice = list.reduce((totalShop,shop)=>{
+      const totalPriceOfShop = shop.items.reduce((total,item)=>{
+        return total + item.price*item.count ;
+      },0)
+      return totalShop + totalPriceOfShop ;
+    },0) ;
+
+    //计算选中的 商品总数量
+    this.totalCount = list.reduce((totalShop,shop)=>{
+      const totalCountOfShop = shop.items.reduce((total,item)=>{
+        return total + item.count ;
+      },0)
+      return totalShop + totalCountOfShop ;
+    },0) ;
+  }
+}
+
+
 // 店铺列表
 // 编辑状态
 // 选中店铺
@@ -44,25 +69,25 @@ export default {
   namespace: 'shoppingcart',
 
   state: {
-    shops:[]
+    shoppingCart:new ShoppingCart()
   },
 
   subscriptions: {
-    setup({dispatch, history}) {  // eslint-disable-line
+    setup({dispatch, history}) {
     },
   },
 
   effects: {
-    * fetch({payload}, {call, put}) {  // eslint-disable-line
+    * fetch({payload}, {call, put}) {
       const response = yield call(queryShoppingCart,payload);
-      console.log('response fetch',response)
       yield put({type: 'save',payload:response.shops});
     },
   },
 
   reducers: {
     save(state, action) {
-      return {...state, shops:action.payload};
+      const shoppingCart = new ShoppingCart(action.payload);
+      return {...state, shoppingCart};
     },
   },
 
