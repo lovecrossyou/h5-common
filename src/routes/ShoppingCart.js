@@ -1,11 +1,11 @@
 import React from 'react';
 import {connect} from 'dva';
-import {NavBar, Icon, Checkbox, Button} from 'antd-mobile';
+import {NavBar, Icon, Checkbox, Button,Stepper} from 'antd-mobile';
 const CheckboxItem = Checkbox.CheckboxItem;
 const logo = 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1536043540&di=372395e9e3a3bb666e0648ee4e82eb77&src=http://img3.99114.com/group1/M00/E4/FC/wKgGS1kdNRWAJtHRAAEkC21g9l8197.png'
 
 // 店铺头部
-const ShopHeader = () => {
+const ShopHeader = ({shop}) => {
   return <div style={{
     height: '80px',
     backgroundColor: '#fff',
@@ -22,14 +22,14 @@ const ShopHeader = () => {
       <CheckboxItem onChange={e => console.log('checkbox', e)}>
         <a onClick={(e) => {
 
-        }}>天猫旗舰店</a>
+        }}>{shop.shopName}</a>
       </CheckboxItem>
     </div>
     <div>领券</div>
   </div>
 }
 // 单个商品
-const PriductItem = () => {
+const PriductItem = ({product}) => {
   return <div
     style={{backgroundColor: '#fff', display: 'flex', flexDirection: 'row', alignItems: 'center', paddingRight: '15px'}}>
     <div style={{width:'40px'}}>
@@ -49,16 +49,24 @@ const PriductItem = () => {
     }}>
       <div>IQS pencil 主动式电容笔高精度超细头触控屏幕苹果ipad平板手机安卓手写笔绘画</div>
       <div style={{color: '#999999'}}> 顺丰包邮</div>
-      <div style={{color: 'pink'}}>¥178</div>
+      <div style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'space-between',width:'100%'}}>
+        <div style={{color: 'pink'}}>¥{product.price}</div>
+        <Stepper
+          showNumber
+          min={1}
+          defaultValue={product.count}
+        />
+      </div>
     </div>
   </div>
 }
 // 店铺
-const ShopItem = () => {
+const ShopItem = ({shop}) => {
   return <div style={{margin:'8px',borderRadius:'8px'}}>
-    <ShopHeader/>
-    <PriductItem/>
-    <PriductItem/>
+    <ShopHeader shop={shop}/>
+    {
+      shop.items.map((p,index)=><PriductItem key={'#'+index} product={p}/>)
+    }
   </div>
 }
 // 购物车footer
@@ -77,9 +85,19 @@ const ShopppingCartFooter = ()=>{
   </div>
 }
 
-
 class ShoppingCart extends React.Component {
+
+  UNSAFE_componentWillMount(){
+    this.props.dispatch({
+      type:'shoppingcart/fetch',
+      payload:{}
+    })
+  }
+
+
   render() {
+    const shops = this.props.store.shops ;
+    console.log(shops)
     return (
       <div style={{paddingBottom:'50px',paddingTop:'50px'}}>
         <div style={{position:'fixed',top:0,left:0,right:0,zIndex:999}}>
@@ -91,15 +109,13 @@ class ShoppingCart extends React.Component {
             ]}
           >购物车</NavBar>
         </div>
-        <ShopItem/>
-        <ShopItem/>
-        <ShopItem/>
+        {shops.map((shop,index)=><ShopItem shop={shop} key={'#'+index}/>)}
         <ShopppingCartFooter/>
       </div>
     );
   }
 }
 
-ShoppingCart.propTypes = {};
-
-export default connect()(ShoppingCart);
+export default connect(({shoppingcart})=>({
+store:shoppingcart
+}))(ShoppingCart);
