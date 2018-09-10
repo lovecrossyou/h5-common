@@ -90,7 +90,7 @@ class MobileLogin extends React.Component {
   }
 }
 
-const BasicInputExampleWrapper = createForm()(MobileLogin);
+const MobileLoginWrapper = createForm()(MobileLogin);
 
 
 class Login extends React.Component{
@@ -113,7 +113,7 @@ class Login extends React.Component{
       <div>
         <img height="200" width="100%" src={bgUrl} alt=""/>
         <WhiteSpace/>
-        {this.state.showLoginForm?(<BasicInputExampleWrapper/>):(<Button type="warning" style={{marginRight: '16px', marginLeft: '16px'}} onClick={this.loginByMobilePhone}>输入手机号登录</Button>)}
+        {this.state.showLoginForm?(<MobileLoginWrapper/>):(<Button type="warning" style={{marginRight: '16px', marginLeft: '16px'}} onClick={this.loginByMobilePhone}>输入手机号登录</Button>)}
         <WhiteSpace/>
         <Button style={{marginRight: '16px', marginLeft: '16px'}} type='ghost' icon={<img src={wechatlogo} alt="" style={{
           width: '45px',

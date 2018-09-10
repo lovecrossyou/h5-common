@@ -3,7 +3,7 @@ import {queryShoppingCart} from "../services/shoppingcart";
 
 class ProductItem {
   constructor(p) {
-    this.selected = false;
+    this.selected = true;
     this.productName = p.productName;
     this.price = p.price;
     this.count = p.count;
@@ -24,7 +24,7 @@ class ProductItem {
 
 class ShopItem {
   constructor(shop) {
-    this.selected = false;
+    this.selected = true;
     this.list = shop.items.map(item => new ProductItem(item));
     this.shopName = shop.shopName;
   }
@@ -49,14 +49,30 @@ class ShopItem {
       return total + p.count;
     }, 0);
   }
+
+  setSelect = seleted => {
+    this.selected = seleted;
+    this.list.forEach(p=>{
+      p.setSelect(seleted);
+    })
+  }
+
+  getSelectedItem = ()=>{
+    const list = [] ;
+    this.list.forEach(p=>{
+      if(p.selected){
+        list.push(p);
+      }
+    });
+    return list ;
+  }
 }
 
 
 class ShoppingCart {
   constructor(list = []) {
-    this.selected = false;
+    this.selected = true;
     this.editing = false;
-
     this.list = list.map(l => {
       return new ShopItem(l);
     });
@@ -77,7 +93,42 @@ class ShoppingCart {
       return totalShop + totalCountOfShop;
     }, 0);
   }
+
+  // 清空购物车
+  clear = ()=>{
+    this.selected = false;
+    this.list = [] ;
+  }
+
+  // 设置编辑状态
+  toggleEditState = ()=>{
+    this.editing = !this.editing ;
+  }
+
+  // 设置选中状态
+  toggleSelect = ()=>{
+    // this.selected = !this.selected ;
+    this.list.forEach(shop=>shop.setSelect(this.selected));
+  }
 }
+
+
+const reduceNewShoppingCartState = state=>{
+  let shoppingCart = state.shoppingCart ;
+  shoppingCart = Object.assign({},shoppingCart);
+  const shops = state.shoppingCart.list;
+  let totalPrice = 0;
+  let totalCount = 0;
+  shops.forEach(shop => {
+    //商品的选中
+    totalPrice += shop.getTotalPrice();
+    totalCount += shop.getTotalCount();
+  })
+  shoppingCart.totalPrice = totalPrice.toFixed(2);
+  shoppingCart.totalCount = totalCount;
+  return {...state, shoppingCart};
+}
+
 
 
 export default {
@@ -100,6 +151,7 @@ export default {
     },
   },
 
+
   reducers: {
     save(state, action) {
       const shoppingCart = new ShoppingCart(action.payload);
@@ -107,7 +159,7 @@ export default {
     },
 
     // 编辑状态
-    toggleEdit(state, action) {
+    toggleEdit(state) {
       const editing = !state.shoppingCart.editing;
       let shoppingCart = state.shoppingCart;
       shoppingCart = Object.assign(shoppingCart, {
@@ -116,73 +168,75 @@ export default {
       return {...state, shoppingCart};
     },
 
-
-    // 选中店铺
-    toggleSelect(state, action) {
-      const selected = !state.shoppingCart.selected;
-      let shoppingCart = state.shoppingCart;
-      shoppingCart = Object.assign(shoppingCart, {
-        selected: selected
-      });
-      const shops = state.shoppingCart.list;
-      let totalPrice = 0;
-      let totalCount = 0;
-      shops.forEach(shop => {
-        shop.selected = selected;
-        //商品的选中
-        const products = shop.list;
-        products.forEach(p => {
-          p.selected = selected;
-        });
-        totalPrice += shop.getTotalPrice();
-        totalCount += shop.getTotalCount();
-      })
-      shoppingCart.totalPrice = totalPrice;
-      shoppingCart.totalCount = totalCount;
-      return {...state, shoppingCart};
+    // 店铺选中
+    toggleShopSelect(state,action){
+      const shop = action.payload ;
+      shop.toggleState();
+      // 重新生成整个购物车
+      return reduceNewShoppingCartState(state);
     },
 
     // 选中商品
     selectProduct(state,action) {
       action.payload.toggleState();
-      let shoppingCart = state.shoppingCart;
-      shoppingCart = Object.assign({},shoppingCart);
-      const shops = state.shoppingCart.list;
-      let totalPrice = 0;
-      let totalCount = 0;
-      shops.forEach(shop => {
-        //商品的选中
-        const products = shop.list;
-        totalPrice += shop.getTotalPrice();
-        totalCount += shop.getTotalCount();
-      })
-      shoppingCart.totalPrice = totalPrice;
-      shoppingCart.totalCount = totalCount;
-      return {...state, shoppingCart};
+      return reduceNewShoppingCartState(state);
     },
 
     // 商品数量加减
     setProductCount(state,action){
-      console.log(action.payload);
+      action.payload.product.setSelect(true);
       action.payload.product.setCount(action.payload.count) ;
-      let shoppingCart = state.shoppingCart;
-      shoppingCart = Object.assign({},shoppingCart);
-      const shops = state.shoppingCart.list;
+      return reduceNewShoppingCartState(state);
+    },
+
+    // 清空购物车
+    clearShoppingCart(state){
+      const shoppingCart = Object.assign({},state.shoppingCart,{
+        list:[],
+      }) ;
+      return {
+        ...state,
+        shoppingCart
+      }
+    },
+
+    // 删除商品
+    delProduct(state,action){
+
+    },
+
+    // 设置编辑状态
+    toggleEditState(state,action){
+      const editing = !state.shoppingCart.editing ;
+      const shoppingCart = Object.assign({},state.shoppingCart,{
+        editing:editing
+      }) ;
+      return {
+        ...state,
+        shoppingCart
+      }
+    },
+
+    // 整个购物车的选中
+    toggleShoppingSelect(state) {
+      const selected = !state.shoppingCart.selected ;
+      const shoppingCart = Object.assign({},state.shoppingCart,{
+        selected:selected
+      }) ;
       let totalPrice = 0;
       let totalCount = 0;
-      shops.forEach(shop => {
+      shoppingCart.list.forEach(shop => {
+        shop.setSelect(selected)
         //商品的选中
-        const products = shop.list;
         totalPrice += shop.getTotalPrice();
         totalCount += shop.getTotalCount();
       })
-      shoppingCart.totalPrice = totalPrice;
+      shoppingCart.totalPrice = totalPrice.toFixed(2);
       shoppingCart.totalCount = totalCount;
-      return {...state, shoppingCart};
-    }
-    // 清空购物车
-    // 删除商品
-
+      return {
+        ...state,
+        shoppingCart
+      }
+    },
   },
-
 };
