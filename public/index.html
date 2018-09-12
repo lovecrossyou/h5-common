@@ -18,6 +18,17 @@
     if(!window.Promise) {
       document.writeln('<script src="https://as.alipayobjects.com/g/component/es6-promise/3.2.2/es6-promise.min.js"'+'>'+'<'+'/'+'script>');
     }
+
+    function ready() {
+      console.log(window.__wxjs_environment === 'miniprogram') // true
+    }
+    if (!window.WeixinJSBridge || !WeixinJSBridge.invoke) {
+      document.addEventListener('WeixinJSBridgeReady', ready, false);
+    } else {
+      ready()
+    }
+
+
   </script>
 </head>
 <body>

@@ -5,3 +5,9 @@ export function queryShoppingCart() {
     method:'POST'
   });
 }
+
+export function queryAddressList() {
+  return request('/api/addresslist',{
+    method:'POST'
+  });
+}

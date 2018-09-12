@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'dva';
-import styles from './Points.css'
+import styles from './PointShop.css'
+import {routerRedux } from 'dva/router';
 
 // 积分商城
 
@@ -36,10 +37,12 @@ const Banner = () => {
 }
 
 
-const Category = () => {
+const Category = ({onClick}) => {
 
   const Item = ({title, className}) => {
-    return <div style={{backgroundColor: '#fff', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
+    return <div
+      onClick={onClick}
+      style={{backgroundColor: '#fff', display: 'flex', alignItems: 'center', flexDirection: 'column'}}>
       <div className={className}/>
       <div style={{textAlign: 'center', height: '24px', lineHeight: '24px'}}>{title}</div>
     </div>
@@ -128,11 +131,17 @@ const Local = () => {
 }
 
 class Points extends React.Component {
+
+  goProductList = ()=>{
+    this.props.dispatch(routerRedux.push('/products'))
+  }
+
+
   render() {
     return <div style={{backgroundColor: '#f5f5f5'}}>
       <UserInfo/>
       <Banner/>
-      <Category/>
+      <Category onClick={this.goProductList}/>
       <CenterView/>
       <Hot/>
       <Local/>

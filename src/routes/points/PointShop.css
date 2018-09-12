@@ -1,27 +1,27 @@
 .banner {
   height: 135px;
-  background: url(../assets/banner.png) no-repeat center 0;
+  background: url(../../assets/banner.png) no-repeat center 0;
   background-size: 95% 135px;
 }
 
 .eat {
   height: 62px;
   width: 62px;
-  background: url(../assets/eat.png) no-repeat center 0;
+  background: url(../../assets/eat.png) no-repeat center 0;
   background-size: 62px 62px;
 }
 
 .car {
   height: 62px;
   width: 62px;
-  background: url(../assets/car.png) no-repeat center 0;
+  background: url(../../assets/car.png) no-repeat center 0;
   background-size: 62px 62px;
 }
 
 .normal{
   height: 62px;
   width: 62px;
-  background: url(../assets/normal.png) no-repeat center 0;
+  background: url(../../assets/normal.png) no-repeat center 0;
   background-size: 62px 62px;
 }
 
@@ -29,7 +29,7 @@
 .other {
   height: 62px;
   width: 62px;
-  background: url(../assets/other.png) no-repeat center 0;
+  background: url(../../assets/other.png) no-repeat center 0;
   background-size: 62px 62px;
 }
 
@@ -56,7 +56,7 @@
 .left{
   width: 100%;
   height: 100px;
-  background: url(../assets/left.png) no-repeat center 0;
+  background: url(../../assets/left.png) no-repeat center 0;
   background-size: 100% 100px;
   margin-right: 10px;
 }
@@ -64,7 +64,7 @@
 .right{
   width: 100%;
   height: 100px;
-  background: url(../assets/right.png) no-repeat center 0;
+  background: url(../../assets/right.png) no-repeat center 0;
   background-size: 100% 100px;
 }
 
@@ -72,7 +72,7 @@
 .rightTop{
   width: 100%;
   height: 91px;
-  background: url(../assets/hot.png) no-repeat center 0;
+  background: url(../../assets/hot.png) no-repeat center 0;
   background-size: 100% 91px;
   border-bottom: solid 1px #e1e1e1;
 }
@@ -80,7 +80,7 @@
 .rightBot{
   width: 100%;
   height: 91px;
-  background: url(../assets/haoli.png) no-repeat center 0;
+  background: url(../../assets/haoli.png) no-repeat center 0;
   background-size: 100% 91px;
 }
 
@@ -98,7 +98,7 @@
 .localLeft{
   width: 50%;
   height: 182px;
-  background: url(../assets/left.png) no-repeat center 0;
+  background: url(../../assets/left.png) no-repeat center 0;
   background-size: 100% 182px;
   margin-right: 2px;
 }
