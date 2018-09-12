@@ -3,7 +3,7 @@ import { SwipeAction, List,Icon } from 'antd-mobile';
 import styles from './Address.css'
 
 export const AddressCell = ({address,del,edit})=>{
-  return <div style={{margin:'10px 0'}}>
+  return <div style={{margin:'10px 0',backgroundColor:'#fff'}}>
     <List>
       <SwipeAction
         style={{ backgroundColor: '#f5f5f5' }}
