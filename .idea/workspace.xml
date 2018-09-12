@@ -2,28 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8826c115-78d4-4cff-bca3-70697728fbf1" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/Address.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/AddressCell.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/FilterMenu.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/components/FilterMenu.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/models/address.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/routes/address/Address.css" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/routes/address/AddressEdit.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/routes/address/AddressList.js" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/routes/points/ProductList.js" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/.roadhogrc.mock.js" afterPath="$PROJECT_DIR$/.roadhogrc.mock.js" />
-      <change beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/components/Example.js" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" afterPath="$PROJECT_DIR$/src/index.js" />
-      <change beforePath="$PROJECT_DIR$/src/router.js" afterPath="$PROJECT_DIR$/src/router.js" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Login.js" afterPath="$PROJECT_DIR$/src/routes/login/Login.js" />
-      <change beforePath="$PROJECT_DIR$/src/routes/OrderList.js" afterPath="$PROJECT_DIR$/src/routes/order/OrderList.js" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Points.css" afterPath="$PROJECT_DIR$/src/routes/points/PointShop.css" />
-      <change beforePath="$PROJECT_DIR$/src/routes/Points.js" afterPath="$PROJECT_DIR$/src/routes/points/PointShop.js" />
-      <change beforePath="$PROJECT_DIR$/src/routes/ShoppingCart.js" afterPath="$PROJECT_DIR$/src/routes/shoppingcart/ShoppingCart.js" />
-      <change beforePath="$PROJECT_DIR$/src/services/shoppingcart.js" afterPath="$PROJECT_DIR$/src/services/shoppingcart.js" />
+      <change beforePath="$PROJECT_DIR$/src/routes/address/Address.css" afterPath="$PROJECT_DIR$/src/routes/address/Address.css" />
+      <change beforePath="$PROJECT_DIR$/src/routes/address/AddressList.js" afterPath="$PROJECT_DIR$/src/routes/address/AddressList.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -40,11 +21,21 @@
       <file leaf-file-name="AddressList.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/routes/address/AddressList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+            <state relative-caret-position="364">
+              <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Address.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/routes/address/Address.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -97,8 +88,8 @@
       <file leaf-file-name="AddressEdit.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/routes/address/AddressEdit.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
+            <state relative-caret-position="964">
+              <caret line="72" column="31" lean-forward="false" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -112,18 +103,6 @@
             <state relative-caret-position="350">
               <caret line="34" column="0" lean-forward="true" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderList.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/routes/order/OrderList.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="990">
-              <caret line="66" column="8" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -143,8 +122,8 @@
       <file leaf-file-name=".roadhogrc.mock.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.roadhogrc.mock.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
+            <state relative-caret-position="282">
+              <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
               <folding>
                 <element signature="e#100#290#0" expanded="false" />
                 <element signature="e#328#404#0" expanded="false" />
@@ -205,15 +184,15 @@
         <option value="$PROJECT_DIR$/src/components/FilterMenu.js" />
         <option value="$PROJECT_DIR$/src/components/FilterMenu.css" />
         <option value="$PROJECT_DIR$/src/routes/points/ProductList.js" />
-        <option value="$PROJECT_DIR$/src/routes/address/Address.css" />
         <option value="$PROJECT_DIR$/src/components/Address.css" />
         <option value="$PROJECT_DIR$/src/services/shoppingcart.js" />
-        <option value="$PROJECT_DIR$/.roadhogrc.mock.js" />
         <option value="$PROJECT_DIR$/src/components/AddressCell.js" />
         <option value="$PROJECT_DIR$/src/router.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
         <option value="$PROJECT_DIR$/src/routes/address/AddressEdit.js" />
         <option value="$PROJECT_DIR$/src/models/address.js" />
+        <option value="$PROJECT_DIR$/.roadhogrc.mock.js" />
+        <option value="$PROJECT_DIR$/src/routes/address/Address.css" />
         <option value="$PROJECT_DIR$/src/routes/address/AddressList.js" />
       </list>
     </option>
@@ -426,12 +405,12 @@
       <workItem from="1536628549287" duration="9393000" />
       <workItem from="1536643997683" duration="1038000" />
       <workItem from="1536645098499" duration="10860000" />
-      <workItem from="1536720200624" duration="16827000" />
+      <workItem from="1536720200624" duration="17715000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="117534000" />
+    <option name="totallyTimeSpent" value="118422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1280" y="23" width="1600" height="877" extended-state="6" />
@@ -444,7 +423,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.21099745" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24509183" sideWeight="0.5462185" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3196931" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.22250639" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29923275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24509183" sideWeight="0.45378152" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -766,14 +745,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/address/Address.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/login/Login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -816,17 +787,6 @@
           <caret line="66" column="8" lean-forward="false" selection-start-line="66" selection-start-column="8" selection-end-line="66" selection-end-column="8" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.roadhogrc.mock.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="35" column="36" lean-forward="false" selection-start-line="35" selection-start-column="36" selection-end-line="35" selection-end-column="36" />
-          <folding>
-            <element signature="e#100#290#0" expanded="false" />
-            <element signature="e#328#404#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,16 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/routes/address/AddressEdit.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="70" column="0" lean-forward="true" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/address.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
@@ -896,10 +846,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.roadhogrc.mock.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="53" column="22" lean-forward="false" selection-start-line="53" selection-start-column="22" selection-end-line="53" selection-end-column="22" />
+          <folding>
+            <element signature="e#100#290#0" expanded="false" />
+            <element signature="e#328#404#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/address/Address.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="1" lean-forward="true" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/routes/address/AddressEdit.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="964">
+          <caret line="72" column="31" lean-forward="false" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/address/AddressList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="37" column="7" lean-forward="true" selection-start-line="37" selection-start-column="7" selection-end-line="37" selection-end-column="7" />
+        <state relative-caret-position="364">
+          <caret line="47" column="7" lean-forward="true" selection-start-line="47" selection-start-column="7" selection-end-line="47" selection-end-column="7" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>

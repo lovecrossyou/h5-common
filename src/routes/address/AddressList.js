@@ -6,10 +6,10 @@ import {AddressCell} from "../../components/AddressCell";
 import {routerRedux } from 'dva/router';
 
 
-const CreateNewAddress = () => {
+const CreateNewAddress = ({onClick}) => {
   return (
-    <div style={{marginTop: '94px'}}>
-      <Button className={styles["btn-new"]} type='warning'>添加新地址</Button>
+    <div className={styles["add-addr-container"]}>
+      <Button className={styles["btn-new"]} type='warning' onClick={onClick}>添加新地址</Button>
     </div>
   )
 }
@@ -40,19 +40,31 @@ class AddressList extends React.Component {
 
   };
 
+  // 新建
+  createNew = ()=>{
+    this.props.dispatch({
+      type:'address/saveActive',
+      payload:null
+    });
+    this.props.dispatch(
+      routerRedux.push('addressedit')
+    );
+  }
+
 
   render() {
     const store = this.props.store;
-    return <div>
+    return <div style={{paddingBottom:'60px'}}>
       {
-        store.addressList.length === 0 ? (<CreateNewAddress/>) : (store.addressList.map((address,index) => {
+        store.addressList.map((address,index) => {
           return <AddressCell
             edit={this.addresseEdit}
             del={this.addressDel}
             address={address}
             key={'#'+index}/>
-        }))
+        })
       }
+      <CreateNewAddress onClick={this.createNew}/>
     </div>
   }
 }
