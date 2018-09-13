@@ -9,4 +9,5 @@ export default {
   extraBabelPlugins: [
     ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": "css" }]
   ],
+  es5ImcompatibleVersions: true,
 }
