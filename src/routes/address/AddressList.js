@@ -25,7 +25,7 @@ class AddressList extends React.Component {
   }
 
   // 编辑
-  addresseEdit = (address) => {
+  addressEdit = (address) => {
     this.props.dispatch({
       type: 'address/saveActive',
       payload: address
@@ -60,7 +60,7 @@ class AddressList extends React.Component {
       {
         store.addressList.map((address, index) => {
           return <AddressCell
-            edit={this.addresseEdit}
+            edit={this.addressEdit}
             del={this.addressDel}
             address={address}
             key={'#' + index}/>
