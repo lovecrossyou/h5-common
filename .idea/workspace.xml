@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="8826c115-78d4-4cff-bca3-70697728fbf1" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/routes/address/AddressList.js" afterPath="$PROJECT_DIR$/src/routes/address/AddressList.js" />
       <change beforePath="$PROJECT_DIR$/src/routes/shoppingcart/ShoppingCart.js" afterPath="$PROJECT_DIR$/src/routes/shoppingcart/ShoppingCart.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -92,11 +91,13 @@
       <file leaf-file-name="ShoppingCart.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/routes/shoppingcart/ShoppingCart.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="379">
-              <caret line="126" column="25" lean-forward="false" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
+            <state relative-caret-position="200">
+              <caret line="119" column="105" lean-forward="false" selection-start-line="119" selection-start-column="105" selection-end-line="119" selection-end-column="105" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
-                <element signature="e#5881#6116#0" expanded="false" />
+                <element signature="e#2868#3312#0" expanded="false" />
+                <element signature="e#3356#3729#0" expanded="false" />
+                <element signature="e#5891#6126#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -200,7 +201,7 @@
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1544" />
+    <option name="x" value="1680" />
     <option name="y" value="35" />
     <option name="width" value="1600" />
     <option name="height" value="877" />
@@ -362,10 +363,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="128311000" />
+    <option name="totallyTimeSpent" value="128894000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1544" y="35" width="1600" height="877" extended-state="0" />
+    <frame x="1680" y="35" width="1600" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -842,11 +843,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/routes/shoppingcart/ShoppingCart.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="126" column="25" lean-forward="false" selection-start-line="126" selection-start-column="25" selection-end-line="126" selection-end-column="25" />
+        <state relative-caret-position="200">
+          <caret line="119" column="105" lean-forward="false" selection-start-line="119" selection-start-column="105" selection-end-line="119" selection-end-column="105" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
-            <element signature="e#5881#6116#0" expanded="false" />
+            <element signature="e#2868#3312#0" expanded="false" />
+            <element signature="e#3356#3729#0" expanded="false" />
+            <element signature="e#5891#6126#0" expanded="false" />
           </folding>
         </state>
       </provider>

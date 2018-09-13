@@ -117,7 +117,7 @@ const ShopppingCartFooter = ({shoppingCart, toggle, clearShoppingCart}) => {
   }
 
 
-  return <div style={{position: 'fixed', bottom: 0,  backgroundColor: '#fff', left: 0, right: 0}}>
+  return <div style={{position: 'fixed', bottom: 0,  backgroundColor: '#fff', left: 0, right: 0,zIndex:10}}>
     <div style={{
       display: 'flex',
       flexDirection: 'row',
@@ -222,21 +222,33 @@ class ShoppingCart extends React.Component {
             ]}
           >购物车</NavBar>
         </div>
-        {shoppingCart.list.map((shop, index) => <ShopItem
-          setProductCount={this.setProductCount}
-          selectProduct={this.selectProduct}
-          toggleShopSelect={this.toggleShopSelect}
-          shop={shop}
-          key={'#' + index}/>)}
+
+
+        <div style={{zIndex:0}}>
+          {shoppingCart.list.map((shop, index) => <ShopItem
+            setProductCount={this.setProductCount}
+            selectProduct={this.selectProduct}
+            toggleShopSelect={this.toggleShopSelect}
+            shop={shop}
+            key={'#' + index}/>)}
+        </div>
+
+
+
         {
           shoppingCart.list.length === 0 ? (<EmptyShoppingCart/>) : (<ShopppingCartFooter
             clearShoppingCart={this.clearShoppingCart}
             shoppingCart={shoppingCart}
             toggle={this.toggleShoppingSelect}/>)
         }
+
+
+
         <div className={styles.loading}>
           <ActivityIndicator toast text="正在加载" animating={loading}/>
         </div>
+
+
       </div>
     );
   }
