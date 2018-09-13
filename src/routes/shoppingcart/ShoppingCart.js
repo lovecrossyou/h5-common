@@ -57,7 +57,9 @@ const PriductItem = ({product, selectProduct, setProductCount}) => {
       justifyContent: 'space-around',
       marginLeft: '15px',
     }}>
-      <div>[{product.productName}]主动式电容笔高精度超细头触控屏幕苹果ipad平板手机安卓手写笔绘画</div>
+      <div style={{lineClamp: 2}}
+           className={styles.intwoline}>[{product.productName}]主动式电容笔高精度超细头触控屏幕苹果ipad平板手机安卓手写笔绘画
+      </div>
       <div style={{color: '#999999'}}> 顺丰包邮</div>
       <div style={{
         display: 'flex',
@@ -100,7 +102,7 @@ const ShopppingCartFooter = ({shoppingCart, toggle, clearShoppingCart}) => {
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
         <div>合计：</div>
         <div style={{color: 'red', paddingRight: '8px'}}>¥{shoppingCart.totalPrice}</div>
-        <Button style={{width: '90px', height: '40px', textAlign: 'center', lineHeight: '40px',fontSize:'14px'}}
+        <Button style={{width: '90px', height: '40px', textAlign: 'center', lineHeight: '40px', fontSize: '14px'}}
                 type="primary">结算({shoppingCart.totalCount})</Button>
       </div>);
   }
@@ -110,14 +112,14 @@ const ShopppingCartFooter = ({shoppingCart, toggle, clearShoppingCart}) => {
     return (
       <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
         <Button
-          style={{width: '90px', height: '40px', textAlign: 'center', lineHeight: '40px',fontSize:'14px'}}
+          style={{width: '90px', height: '40px', textAlign: 'center', lineHeight: '40px', fontSize: '14px'}}
           onClick={clearShoppingCart}
           type="warning">删除({shoppingCart.totalCount})</Button>
       </div>);
   }
 
 
-  return <div style={{position: 'fixed', bottom: 0,  backgroundColor: '#fff', left: 0, right: 0,zIndex:10}}>
+  return <div style={{position: 'fixed', bottom: 0, backgroundColor: '#fff', left: 0, right: 0, zIndex: 10}}>
     <div style={{
       display: 'flex',
       flexDirection: 'row',
@@ -128,7 +130,9 @@ const ShopppingCartFooter = ({shoppingCart, toggle, clearShoppingCart}) => {
       height: '50px',
       boxShadow: '#ccc 1px 1px 10px 0px'
     }}>
-      <CheckboxItem checked={shoppingCart.selected} onChange={toggle}>全选</CheckboxItem>
+      <div onClick={toggle}>
+        <CheckboxItem checked={shoppingCart.selected}>全选</CheckboxItem>
+      </div>
       {shoppingCart.editing ? <FooterEdit shoppingCart={shoppingCart}/> : <Footer shoppingCart={shoppingCart}/>}
     </div>
   </div>
@@ -224,7 +228,7 @@ class ShoppingCart extends React.Component {
         </div>
 
 
-        <div style={{zIndex:0}}>
+        <div style={{zIndex: 0}}>
           {shoppingCart.list.map((shop, index) => <ShopItem
             setProductCount={this.setProductCount}
             selectProduct={this.selectProduct}
@@ -234,14 +238,12 @@ class ShoppingCart extends React.Component {
         </div>
 
 
-
         {
           shoppingCart.list.length === 0 ? (<EmptyShoppingCart/>) : (<ShopppingCartFooter
             clearShoppingCart={this.clearShoppingCart}
             shoppingCart={shoppingCart}
             toggle={this.toggleShoppingSelect}/>)
         }
-
 
 
         <div className={styles.loading}>
