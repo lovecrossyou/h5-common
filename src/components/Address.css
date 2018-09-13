@@ -20,6 +20,7 @@
   flex-direction: row;
   justify-content: space-between;
   color: #999999;
+  font-size: 14px;
 
 }
 
@@ -30,4 +31,12 @@
   justify-content: space-between;
   height: 70px;
   background-color: #fff;
+}
+
+.location{
+  background: url(../assets/location.png) no-repeat center 0;
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  /*border: none;*/
 }

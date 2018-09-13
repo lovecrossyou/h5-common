@@ -1,9 +1,9 @@
 import React from 'react';
 import {connect} from 'dva';
-import {Button} from 'antd-mobile';
+import {Button, ActivityIndicator} from 'antd-mobile';
 import styles from './Address.css'
 import {AddressCell} from "../../components/AddressCell";
-import {routerRedux } from 'dva/router';
+import {routerRedux} from 'dva/router';
 
 
 const CreateNewAddress = ({onClick}) => {
@@ -25,10 +25,10 @@ class AddressList extends React.Component {
   }
 
   // 编辑
-  addresseEdit = (address)=>{
+  addresseEdit = (address) => {
     this.props.dispatch({
-      type:'address/saveActive',
-      payload:address
+      type: 'address/saveActive',
+      payload: address
     });
     this.props.dispatch(
       routerRedux.push('addressedit')
@@ -36,15 +36,15 @@ class AddressList extends React.Component {
   }
 
   // 删除
-  addressDel = ()=>{
-
+  addressDel = (address) => {
+    console.log('删除 ', address);
   };
 
   // 新建
-  createNew = ()=>{
+  createNew = () => {
     this.props.dispatch({
-      type:'address/saveActive',
-      payload:null
+      type: 'address/saveActive',
+      payload: null
     });
     this.props.dispatch(
       routerRedux.push('addressedit')
@@ -54,22 +54,28 @@ class AddressList extends React.Component {
 
   render() {
     const store = this.props.store;
-    return <div style={{paddingBottom:'60px'}}>
+    const {loading} = this.props;
+
+    return <div style={{paddingBottom: '60px'}}>
       {
-        store.addressList.map((address,index) => {
+        store.addressList.map((address, index) => {
           return <AddressCell
             edit={this.addresseEdit}
             del={this.addressDel}
             address={address}
-            key={'#'+index}/>
+            key={'#' + index}/>
         })
       }
       <CreateNewAddress onClick={this.createNew}/>
+      <div className={styles.loading}>
+        <ActivityIndicator toast text="正在加载" animating={loading}/>
+      </div>
     </div>
   }
 }
 
 
-export default connect(({address})=>({
-  store:address,
+export default connect((state) => ({
+  store: state.address,
+  loading: state.loading.global
 }))(AddressList);

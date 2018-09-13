@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'dva';
-import {NavBar, Icon, Checkbox, Button, Stepper} from 'antd-mobile';
-
+import {NavBar, Icon, Checkbox, Button, Stepper,ActivityIndicator} from 'antd-mobile';
+import styles from './ShoppingCart.css'
 const CheckboxItem = Checkbox.CheckboxItem;
 const logo = 'https://ss0.bdstatic.com/94oJfD_bAAcT8t7mm9GUKT-xh_/timg?image&quality=100&size=b4000_4000&sec=1536043540&di=372395e9e3a3bb666e0648ee4e82eb77&src=http://img3.99114.com/group1/M00/E4/FC/wKgGS1kdNRWAJtHRAAEkC21g9l8197.png'
 
@@ -45,7 +45,7 @@ const PriductItem = ({product, selectProduct, setProductCount}) => {
       }}/>
     </div>
     <div style={{flex: 1}}>
-      <img style={{width: '120px', height: '120px'}} src={logo} alt=""/>
+      <img style={{width: '90px', height: '90px'}} src={logo} alt=""/>
     </div>
     <div style={{
       display: 'flex',
@@ -188,6 +188,7 @@ class ShoppingCart extends React.Component {
 
   render() {
     const shoppingCart = this.props.store.shoppingCart;
+    const { loading } = this.props;
     return (
       <div style={{paddingBottom: '50px', paddingTop: '50px'}}>
         <div style={{position: 'fixed', top: 0, left: 0, right: 0, zIndex: 999}}>
@@ -211,12 +212,15 @@ class ShoppingCart extends React.Component {
             shoppingCart={shoppingCart}
             toggle={this.toggleShoppingSelect}/>)
         }
-
+        <div className={styles.loading}>
+          <ActivityIndicator toast text="正在加载" animating={loading} />
+        </div>
       </div>
     );
   }
 }
 
-export default connect(({shoppingcart}) => ({
-  store: shoppingcart
+export default connect((state) => ({
+  store: state.shoppingcart,
+  loading: state.loading.global
 }))(ShoppingCart);

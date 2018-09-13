@@ -1,6 +1,8 @@
 import React from 'react';
-import { SwipeAction, List,Icon } from 'antd-mobile';
+import { SwipeAction, List } from 'antd-mobile';
 import styles from './Address.css'
+import locationImg from '../assets/location.png' ;
+
 
 export const AddressCell = ({address,del,edit})=>{
   return <div style={{margin:'10px 0',backgroundColor:'#fff'}}>
@@ -32,7 +34,7 @@ export const AddressCell = ({address,del,edit})=>{
         >
           <div className={styles["cell-content"]}>
             <div className={styles["left-icon"]}>
-              <Icon type='search'/>
+              <img src={locationImg} alt={""}/>
             </div>
             <div className={styles.right}>
               <div className={styles["flex-r"]}>

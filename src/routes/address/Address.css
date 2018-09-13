@@ -16,4 +16,11 @@
   z-index: 9999;
 }
 
+.loading{
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
 
