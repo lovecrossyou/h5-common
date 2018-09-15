@@ -72,7 +72,7 @@
 .rightTop{
   width: 100%;
   height: 91px;
-  background: url(../../assets/hot.png) no-repeat center 0;
+  background: url(../../assets/food-logo1.png) no-repeat center 0;
   background-size: 100% 91px;
   border-bottom: solid 1px #e1e1e1;
 }
@@ -80,8 +80,9 @@
 .rightBot{
   width: 100%;
   height: 91px;
-  background: url(../../assets/haoli.png) no-repeat center 0;
+  background: url(../../assets/foods-logo.png) no-repeat center 0;
   background-size: 100% 91px;
+
 }
 
 
@@ -98,7 +99,7 @@
 .localLeft{
   width: 50%;
   height: 182px;
-  background: url(../../assets/left.png) no-repeat center 0;
+  background: url(../../assets/hotel-logo.png) no-repeat center 0;
   background-size: 100% 182px;
   margin-right: 2px;
 }
